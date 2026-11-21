@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting Eligibility Checker</title>
+<style>
+* {
+    box-sizing: border-box;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: #eef4f1;
+    color: #18332a;
+}
+
+.box {
+    width: min(520px, 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 40px;
+    border: 1px solid #cbdad2;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 16px 40px rgba(24, 51, 42, 0.12);
+}
+
+h1 {
+    margin: 0 0 4px;
+    color: #1f5d46;
+}
+
+p {
+    margin: 0;
+}
+
+label {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #355c4d;
+}
+
+input {
+    width: 100%;
+    height: 44px;
+    margin: 0 auto;
+    border: 2px solid #a8beb3;
+    border-radius: 8px;
+    background: #f8fbf9;
+    color: #18332a;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2f7d5d;
+}
+
+button {
+    width: 100%;
+    height: 44px;
+    margin: 4px auto 0;
+    border: none;
+    border-radius: 8px;
+    background: #2f7d5d;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+    background: #25684d;
+}
+
+#output {
+    min-height: 24px;
+    margin-top: 8px;
+    color: #355c4d;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+  
+  <div class="box">
+    <h1>VOTING ELIGIBILTY CHECKER</h1>
+    <p>Enter your age here and check if you are eligible to vote</p>
+
+    <label>Age:</label>
+    <input type="number" id="age" placeholder="Enter your age"><br>
+
+    <button onclick="check()">CHECK</button>
+
+    <p id="output"></p>
+  </div>
+
+  <script>
+
+    function check() {
+    let age = Number(document.getElementById("age").value);
+
+    if(document.getElementById("age").value === "") {
+        document.getElementById("output").innerHTML = "Please enter your age";
+    }
+
+    else if(age < 18) {
+        document.getElementById("output").innerHTML = "Sorry! You are not eligible to vote";
+    }
+
+    else {
+        document.getElementById("output").innerHTML = "Congratulations! You are eligible to vote";
+    }
+}
+    
+
+  </script>
+</body>
+</html>
